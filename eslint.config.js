@@ -7,7 +7,15 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['dist', 'reports', 'public', 'node_modules', 'test-results', 'playwright-report'],
+    ignores: [
+      'dist',
+      'reports',
+      'public',
+      'node_modules',
+      'test-results',
+      'playwright-report',
+      'e2e/__screenshots__',
+    ],
   },
 
   // Plain JavaScript (Node scripts and config files).

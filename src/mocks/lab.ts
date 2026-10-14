@@ -6,7 +6,7 @@ import { useLastResultStore } from '../persistence/lastResultStore.ts';
 import { useOptionsStore } from '../persistence/optionsStore.ts';
 import { removeStored, STORAGE_KEYS } from '../persistence/storage.ts';
 import { mockDb } from './browser.ts';
-import { setScenario, setScenarioSeed } from './scenarios.ts';
+import { isScenarioId, setScenario, setScenarioSeed } from './scenarios.ts';
 
 /**
  * Reset actions of the Network Lab (also exposed to end-to-end tests). Every
@@ -40,6 +40,12 @@ export const labActions = {
     resetLocalPlayerCache();
     getLocalPlayer();
     queryClient.clear();
+  },
+
+  /** Switches the active network scenario (same as the Network Lab select). */
+  setScenario(id: string): void {
+    if (!isScenarioId(id)) throw new Error(`Unknown scenario: ${id}`);
+    setScenario(id);
   },
 
   dbStats(): { records: number; revision: number } {

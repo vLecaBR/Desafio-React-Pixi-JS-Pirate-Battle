@@ -26,3 +26,6 @@ playwright/.cache/
 
 # Vercel
 .vercel
+
+# Test reports (curated copies are added explicitly)
+reports/

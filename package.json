@@ -23,7 +23,10 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:update": "playwright test --update-snapshots",
-    "test:visual": "playwright test e2e/visual.spec.ts",
+    "test:visual": "playwright test -c playwright.visual.config.ts",
+    "test:visual:update": "playwright test -c playwright.visual.config.ts --update-snapshots",
+    "test:visual:docker": "node scripts/visual-docker.mjs",
+    "test:visual:docker:update": "node scripts/visual-docker.mjs --update-snapshots",
     "perf": "playwright test -c playwright.perf.config.ts",
     "report": "playwright show-report reports/playwright-html"
   },

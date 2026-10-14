@@ -28,13 +28,17 @@ export function LoadingScreen() {
 
   useEffect(() => {
     let cancelled = false;
+    let settled = false;
     loadGame((progress) => {
-      if (!cancelled) setState({ status: 'loading', progress });
+      // Late progress from files still loading must not hide an error.
+      if (!cancelled && !settled) setState({ status: 'loading', progress });
     })
       .then(() => {
+        settled = true;
         if (!cancelled) assetsReady();
       })
       .catch((error: unknown) => {
+        settled = true;
         if (cancelled) return;
         setState({
           status: 'error',

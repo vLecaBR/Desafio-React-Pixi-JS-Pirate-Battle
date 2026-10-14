@@ -3,6 +3,8 @@ import type { MatchRecord } from '../data/contracts.ts';
 import { getLocalPlayer } from '../data/player.ts';
 import { registration } from '../data/services.ts';
 import { createMatchConfig, type GameConfig } from '../game/config/gameConfig.ts';
+import { requestedPreset } from '../game/config/presets.ts';
+import type { SimulationSetup } from '../game/core/Simulation.ts';
 import type { MatchResult } from '../game/core/types.ts';
 import { requestedSeed } from '../game/testing/testHooks.ts';
 import { useLastResultStore } from '../persistence/lastResultStore.ts';
@@ -21,6 +23,8 @@ export interface MatchSession {
   /** Immutable configuration snapshot taken when the match starts. */
   readonly config: GameConfig;
   readonly seed: number;
+  /** Initial state from a test/profiling preset, if any. */
+  readonly setup?: SimulationSetup;
 }
 
 interface ScreenState {
@@ -52,9 +56,15 @@ export const useScreenStore = create<ScreenState>()((set, get) => ({
   startMatch: () => {
     // Snapshot of the options in effect right now; later changes apply to new matches.
     const options = useOptionsStore.getState().options;
+    const preset = requestedPreset();
     set({
       screen: 'loading',
-      session: { key: ++matchCounter, config: createMatchConfig(options), seed: randomSeed() },
+      session: {
+        key: ++matchCounter,
+        config: createMatchConfig(options, preset?.overrides ?? {}),
+        seed: randomSeed(),
+        ...(preset?.setup ? { setup: preset.setup } : {}),
+      },
     });
   },
   assetsReady: () => {

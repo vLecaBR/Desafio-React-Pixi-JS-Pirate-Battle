@@ -202,7 +202,12 @@ export class GameController {
       }
     }
     const alpha = this.paused || this.options.manualClock ? 1 : this.clock.alpha;
-    this.renderer.render(alpha, Math.min(dt, this.options.config.sim.maxFrameSec));
+    // With the manual (test) clock, cosmetic animations only advance with advance(),
+    // so screenshots are deterministic.
+    const cosmeticDt = this.options.manualClock
+      ? 0
+      : Math.min(dt, this.options.config.sim.maxFrameSec);
+    this.renderer.render(alpha, cosmeticDt);
     this.sounds.update();
     this.publishHud();
   };

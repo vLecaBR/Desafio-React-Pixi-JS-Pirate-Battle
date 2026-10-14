@@ -16,6 +16,9 @@ import { TILESHEET, tileRect, type TileId } from '../core/world/tiles.ts';
 
 const BASE = '/assets';
 
+/** A load that does not settle in this time is reported as a failure (never hangs). */
+const LOAD_TIMEOUT_MS = 30_000;
+
 export type ShipSkin = 'player' | 'chaser' | 'shooter';
 
 /**
@@ -78,6 +81,18 @@ function manifest(retina: boolean) {
 }
 
 let cached: GameTextures | null = null;
+let assetsInitialised: Promise<void> | null = null;
+
+/**
+ * Initialises the PixiJS asset system once. Textures are decoded on the main
+ * thread: with worker decoding, a failed image request can leave the load pending
+ * forever instead of rejecting (preferences must be set at init, when the parsers
+ * are registered).
+ */
+function initAssets(): Promise<void> {
+  assetsInitialised ??= Assets.init({ preferences: { preferWorkers: false } });
+  return assetsInitialised;
+}
 let inflight: Promise<GameTextures> | null = null;
 
 /**
@@ -91,24 +106,46 @@ export function loadGameAssets(onProgress?: (progress: number) => void): Promise
   }
   if (inflight) return inflight;
 
+  // Pixi rejects as soon as one file fails while the others keep loading and
+  // reporting progress; progress is ignored once the load has settled.
+  let settled = false;
   inflight = (async () => {
     try {
+      await initAssets();
       const assets = manifest(useRetina());
-      await Assets.load(assets, {
-        onProgress: (progress: number) => onProgress?.(progress),
-        strategy: 'throw',
-        retryCount: 0,
-      });
+      await withTimeout(
+        Assets.load(assets, {
+          onProgress: (progress: number) => {
+            if (!settled) onProgress?.(progress);
+          },
+          strategy: 'throw',
+          retryCount: 0,
+        }),
+        LOAD_TIMEOUT_MS,
+      );
       cached = buildTextures();
       onProgress?.(1);
       return cached;
     } catch (error) {
       throw error instanceof AssetLoadError ? error : new AssetLoadError(error);
     } finally {
+      settled = true;
       inflight = null;
     }
   })();
   return inflight;
+}
+
+function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => {
+      reject(new Error(`Asset loading timed out after ${ms} ms`));
+    }, ms);
+  });
+  return Promise.race([promise, timeout]).finally(() => {
+    clearTimeout(timer);
+  });
 }
 
 /** Already-loaded textures, or null. */

@@ -44,6 +44,7 @@ export function GameCanvas(props: GameCanvasProps) {
       textures,
       hud,
       manualClock: isTestMode,
+      ...(session.setup ? { setup: session.setup } : {}),
       onMatchEnded: (result) => {
         callbacks.current.onMatchEnded(result);
       },

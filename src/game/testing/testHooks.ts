@@ -17,9 +17,17 @@ export interface TestStateSnapshot {
   readonly score: number;
   readonly endReason: string | null;
   readonly spawnsSoFar: number;
-  readonly player: { x: number; y: number; heading: number; hp: number; alive: boolean };
+  readonly player: {
+    x: number;
+    y: number;
+    heading: number;
+    hp: number;
+    alive: boolean;
+    speed: number;
+  };
   readonly enemies: { id: number; type: string; x: number; y: number; hp: number }[];
   readonly projectiles: number;
+  readonly projectileList: { team: string; x: number; y: number; dirX: number; dirY: number }[];
 }
 
 export interface TestHooks {
@@ -50,7 +58,8 @@ export const requestedSeed: number | null = (() => {
 
 let current: GameController | null = null;
 
-const round = (value: number) => Math.round(value * 100) / 100;
+// `|| 0` normalises -0 so snapshots compare equal with Object.is.
+const round = (value: number) => Math.round(value * 100) / 100 || 0;
 
 const hooks: TestHooks = {
   state() {
@@ -71,6 +80,7 @@ const hooks: TestHooks = {
         heading: round(s.player.heading),
         hp: s.player.hp,
         alive: s.player.alive,
+        speed: round(s.player.speed),
       },
       enemies: s.enemies.map((e) => ({
         id: e.id,
@@ -80,6 +90,13 @@ const hooks: TestHooks = {
         hp: e.hp,
       })),
       projectiles: s.projectiles.length,
+      projectileList: s.projectiles.map((p) => ({
+        team: p.team,
+        x: round(p.x),
+        y: round(p.y),
+        dirX: round(p.dirX),
+        dirY: round(p.dirY),
+      })),
     };
   },
   advance(ms) {
