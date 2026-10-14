@@ -5,6 +5,8 @@ import { App } from './app/App.tsx';
 import { queryClient } from './data/queryClient.ts';
 import { startBackgroundSync } from './data/services.ts';
 import { audio } from './game/audio/AudioManager.ts';
+import { exposeLabActions, isTestMode } from './game/testing/testHooks.ts';
+import { startMocks } from './mocks/start.ts';
 import './ui/styles/global.css';
 
 // Query devtools only in development builds (tree-shaken from production).
@@ -20,6 +22,13 @@ audio.installUnlock();
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Root element #root not found');
+
+// MSW must be running before the first render, or the first query could escape it.
+const mocks = await startMocks();
+if (isTestMode && mocks === 'running') {
+  const { labActions } = await import('./mocks/lab.ts');
+  exposeLabActions(labActions);
+}
 
 createRoot(container).render(
   <StrictMode>

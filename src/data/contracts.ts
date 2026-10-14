@@ -74,6 +74,8 @@ export const API_ROUTES = {
   ranking: '/ranking',
   matches: '/matches',
   playerMatches: (playerId: string) => `/players/${encodeURIComponent(playerId)}/matches`,
+  /** Route pattern of `playerMatches` (path parameter syntax used by the mocks). */
+  playerMatchesPattern: '/players/:playerId/matches',
 } as const;
 
 export const API_BASE_URL = '/api';

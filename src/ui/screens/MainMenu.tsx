@@ -1,11 +1,18 @@
+import { lazy, Suspense, useState } from 'react';
 import { useScreenStore } from '../../app/screenStore.ts';
 import { registration, usePendingEntries } from '../../data/services.ts';
+import { mocksEnabled } from '../../mocks/start.ts';
 import { useLastResultStore } from '../../persistence/lastResultStore.ts';
 import { WoodButton } from '../components/buttons.tsx';
 import { MenuLayout } from '../components/MenuLayout.tsx';
 import { MuteButton } from '../components/MuteButton.tsx';
 import { formatClock } from '../format.ts';
 import { useFocusOnMount } from '../hooks/useFocusOnMount.ts';
+
+const NetworkLab = lazy(() => import('../dev/NetworkLab.tsx'));
+
+const LAB_REQUESTED =
+  typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('lab') === '1';
 
 export function MainMenu() {
   const startMatch = useScreenStore((state) => state.startMatch);
@@ -15,6 +22,7 @@ export function MainMenu() {
   const lastResult = useLastResultStore((state) => state.lastResult);
   const headingRef = useFocusOnMount<HTMLHeadingElement>();
   const pending = usePendingEntries();
+  const [labOpen, setLabOpen] = useState(LAB_REQUESTED && mocksEnabled());
 
   return (
     <MenuLayout labelledBy="menu-title" corner={<MuteButton />}>
@@ -134,6 +142,28 @@ export function MainMenu() {
           <p className="panel__text">You can sail, turn and fire at the same time.</p>
         </div>
       </details>
+
+      {mocksEnabled() && (
+        <button
+          type="button"
+          className="text-button lab-button"
+          onClick={() => {
+            setLabOpen(true);
+          }}
+        >
+          Network lab
+        </button>
+      )}
+      {labOpen && (
+        <Suspense fallback={null}>
+          <NetworkLab
+            open={labOpen}
+            onClose={() => {
+              setLabOpen(false);
+            }}
+          />
+        </Suspense>
+      )}
     </MenuLayout>
   );
 }

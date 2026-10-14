@@ -31,6 +31,8 @@ export interface TestHooks {
 declare global {
   interface Window {
     __PB__?: TestHooks;
+    /** Network Lab actions (reset, counts), exposed only in test mode. */
+    __PB_LAB__?: unknown;
   }
 }
 
@@ -93,4 +95,9 @@ export function setTestController(controller: GameController | null): void {
   if (!isTestMode) return;
   current = controller;
   window.__PB__ = hooks;
+}
+
+/** Exposes the Network Lab actions to end-to-end tests (test mode only). */
+export function exposeLabActions(actions: unknown): void {
+  if (isTestMode) window.__PB_LAB__ = actions;
 }

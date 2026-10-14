@@ -9,9 +9,11 @@ function timeoutFromEnv(): number {
 }
 
 /** Creates the Axios instance used for the ranking and history API. */
-export function createHttpClient(options: { timeoutMs?: number } = {}): AxiosInstance {
+export function createHttpClient(
+  options: { timeoutMs?: number; baseURL?: string } = {},
+): AxiosInstance {
   const client = axios.create({
-    baseURL: API_BASE_URL,
+    baseURL: options.baseURL ?? API_BASE_URL,
     timeout: options.timeoutMs ?? timeoutFromEnv(),
     headers: { Accept: 'application/json' },
   });

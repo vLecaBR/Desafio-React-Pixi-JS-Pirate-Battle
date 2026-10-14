@@ -4,14 +4,16 @@ export function formatClock(totalSeconds: number): string {
   return `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
 }
 
-const DAY = new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: 'short' });
+const DAY_OF_MONTH = new Intl.DateTimeFormat('en-US', { day: '2-digit' });
+const MONTH = new Intl.DateTimeFormat('en-US', { month: 'short' });
 const TIME = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit' });
 
 /** "08 SEP" and "19:36" parts of an ISO date, in the player's time zone. */
 export function formatPlayedAt(iso: string): { day: string; time: string } {
   const date = new Date(iso);
   if (Number.isNaN(date.getTime())) return { day: '--', time: '--:--' };
-  return { day: DAY.format(date).toUpperCase(), time: TIME.format(date) };
+  const day = `${DAY_OF_MONTH.format(date)} ${MONTH.format(date).toUpperCase()}`;
+  return { day, time: TIME.format(date) };
 }
 
 /** Two-digit rank as in the mockup ("01"). */
