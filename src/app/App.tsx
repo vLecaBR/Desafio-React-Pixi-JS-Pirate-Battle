@@ -1,20 +1,32 @@
-/**
- * Phase 1 placeholder: validates the build and deployment pipeline with the
- * game's background scene. Replaced by the screen state machine in later phases.
- */
+import { lazy, Suspense } from 'react';
+import { LoadingScreen } from '../ui/screens/LoadingScreen.tsx';
+import { MainMenu } from '../ui/screens/MainMenu.tsx';
+import { ResultScreen } from '../ui/screens/ResultScreen.tsx';
+import { useScreenStore } from './screenStore.ts';
+
+// PixiJS and the game only load when a match starts (prefetched by LoadingScreen).
+const GameScreen = lazy(() =>
+  import('../ui/screens/GameScreen.tsx').then((module) => ({ default: module.GameScreen })),
+);
+
 export function App() {
-  return (
-    <main className="placeholder">
-      <img
-        className="placeholder__title"
-        src="/assets/png/default/ui/menu/title_pirate_battle.png"
-        srcSet="/assets/png/default/ui/menu/title_pirate_battle.png 1x, /assets/png/retina/ui/menu/title_pirate_battle.png 2x"
-        alt="Pirate Battle"
-        width={384}
-        height={128}
-      />
-      <p className="placeholder__tagline">Set sail. Take command.</p>
-      <p className="placeholder__status">The fleet is being prepared. Check back soon.</p>
-    </main>
-  );
+  const screen = useScreenStore((state) => state.screen);
+  const session = useScreenStore((state) => state.session);
+
+  switch (screen) {
+    case 'menu':
+      return <MainMenu />;
+    case 'loading':
+      return <LoadingScreen />;
+    case 'playing':
+      return session ? (
+        <Suspense fallback={null}>
+          <GameScreen key={session.key} session={session} />
+        </Suspense>
+      ) : (
+        <MainMenu />
+      );
+    case 'result':
+      return <ResultScreen />;
+  }
 }

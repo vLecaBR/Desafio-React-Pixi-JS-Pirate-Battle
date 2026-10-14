@@ -298,6 +298,16 @@ describe('spawner', () => {
     }
   });
 
+  it('finds a valid spawn point on every interval, even with the player idle at the start', () => {
+    for (const seed of [11, 12, 13, 14, 15]) {
+      const h = createHarness({ seed });
+      h.run(10);
+      expect(h.eventsOf('enemySpawned').map((event) => event.tick)).toEqual(
+        [1.5, 4.5, 7.5].map((seconds) => h.stepsFor(seconds)),
+      );
+    }
+  });
+
   it('never exceeds maxAlive and never spawns on obstacles', () => {
     const h = createHarness({
       seed: 3,

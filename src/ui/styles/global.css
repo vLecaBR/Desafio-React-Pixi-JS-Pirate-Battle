@@ -3,6 +3,9 @@
   --color-ink: #fff8e7;
   --color-ink-muted: #e6d6b3;
   --color-sea-deep: #0b2a3a;
+  --color-wood: #7a4a22;
+  --color-gold: #ffd166;
+  --color-focus: #ffd166;
   font-family:
     system-ui,
     -apple-system,
@@ -26,7 +29,17 @@ body,
   height: 100%;
 }
 
-.placeholder {
+body {
+  overflow: hidden;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* Temporary screen layout; replaced by the themed UI in the UI phase. */
+.screen {
   min-height: 100%;
   display: grid;
   place-content: center;
@@ -36,27 +49,129 @@ body,
     max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
   text-align: center;
   background:
-    linear-gradient(rgb(5 20 30 / 0.55), rgb(5 20 30 / 0.55)),
+    linear-gradient(rgb(5 20 30 / 0.6), rgb(5 20 30 / 0.6)),
     url('/assets/ui_scene_background.png') center / cover no-repeat,
     var(--color-sea-deep);
 }
 
-.placeholder__title {
+.screen__title {
   width: min(384px, 80vw);
   height: auto;
 }
 
-.placeholder__tagline {
+.screen__tagline {
   margin: 0;
-  font-size: clamp(1rem, 2.5vw, 1.375rem);
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  text-shadow: 0 2px 4px rgb(0 0 0 / 0.6);
 }
 
-.placeholder__status {
+.button {
+  min-width: 12rem;
+  min-height: 3rem;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid #3b2410;
+  border-radius: 0.75rem;
+  background: linear-gradient(#e0a24c, #b8712a);
+  color: #2a1606;
+  font: inherit;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.button--secondary {
+  background: linear-gradient(#cdb48c, #9e8156);
+}
+
+.controls-help {
+  max-width: 28rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  background: rgb(0 0 0 / 0.45);
+  text-align: left;
+}
+
+.controls-help h2 {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+}
+
+.loading {
+  display: grid;
+  gap: 0.5rem;
+  width: min(20rem, 80vw);
+}
+
+.loading progress {
+  width: 100%;
+  height: 1rem;
+}
+
+.result__score {
   margin: 0;
+  font-size: 4rem;
+  font-weight: 900;
+}
+
+.game-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #2a8fb8;
+}
+
+.game-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.hud {
+  position: absolute;
+  top: max(0.5rem, env(safe-area-inset-top));
+  left: max(0.5rem, env(safe-area-inset-left));
+  right: max(0.5rem, env(safe-area-inset-right));
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  pointer-events: none;
+}
+
+.hud__item {
+  margin: 0;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+  background: rgb(0 0 0 / 0.55);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.hud__label {
   color: var(--color-ink-muted);
-  text-shadow: 0 1px 3px rgb(0 0 0 / 0.6);
+  font-weight: 600;
+}
+
+.hud__pause {
+  margin-left: auto;
+  pointer-events: auto;
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #3b2410;
+  background: linear-gradient(#e0a24c, #b8712a);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.75rem;
+  background: rgb(5 20 30 / 0.7);
 }
