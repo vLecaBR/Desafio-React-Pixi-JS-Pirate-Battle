@@ -1,45 +1,118 @@
 import { useScreenStore } from '../../app/screenStore.ts';
+import { useLastResultStore } from '../../persistence/lastResultStore.ts';
+import { WoodButton } from '../components/buttons.tsx';
+import { MenuLayout } from '../components/MenuLayout.tsx';
+import { MuteButton } from '../components/MuteButton.tsx';
+import { formatClock } from '../format.ts';
+import { useFocusOnMount } from '../hooks/useFocusOnMount.ts';
 
-/** Temporary main menu (the full menu arrives with the UI phase). */
 export function MainMenu() {
   const startMatch = useScreenStore((state) => state.startMatch);
+  const openOptions = useScreenStore((state) => state.openOptions);
+  const openLog = useScreenStore((state) => state.openLog);
+  const showLastResult = useScreenStore((state) => state.showLastResult);
+  const lastResult = useLastResultStore((state) => state.lastResult);
+  const headingRef = useFocusOnMount<HTMLHeadingElement>();
+
   return (
-    <main className="screen screen--menu">
+    <MenuLayout labelledBy="menu-title" corner={<MuteButton />}>
+      <h1 id="menu-title" ref={headingRef} tabIndex={-1} className="visually-hidden">
+        Pirate Battle
+      </h1>
       <img
-        className="screen__title"
+        className="panel__title-image"
         src="/assets/png/default/ui/menu/title_pirate_battle.png"
         srcSet="/assets/png/default/ui/menu/title_pirate_battle.png 1x, /assets/png/retina/ui/menu/title_pirate_battle.png 2x"
-        alt="Pirate Battle"
+        alt=""
         width={384}
         height={128}
       />
-      <p className="screen__tagline">Set sail. Take command.</p>
-      <button
-        type="button"
-        className="button"
-        onClick={() => {
-          startMatch();
-        }}
-      >
-        Play
-      </button>
-      <section className="controls-help" aria-label="Controls">
-        <h2>Controls</h2>
-        <h3>Keyboard</h3>
-        <ul>
-          <li>W / Up arrow: sail forward</li>
-          <li>A, D / Left, Right arrows: turn</li>
-          <li>Space / K: front cannon</li>
-          <li>Q / J and E / L: left and right broadsides</li>
-          <li>Esc / P: pause</li>
-        </ul>
-        <h3>Touch (landscape)</h3>
-        <ul>
-          <li>Left buttons: turn left, sail forward, turn right</li>
-          <li>Right buttons: left broadside, front cannon, right broadside</li>
-          <li>Hold several buttons at once to sail and fire together</li>
-        </ul>
-      </section>
-    </main>
+      <p className="panel__tagline">Set sail. Take command.</p>
+
+      <div className="panel__actions">
+        <WoodButton onClick={startMatch}>Play</WoodButton>
+        <WoodButton onClick={openOptions}>Options</WoodButton>
+      </div>
+
+      <img className="main-menu__ship" src="/assets/png/default/ships/ship_2.png" alt="" />
+      <p className="panel__text">Navigate the islands. Survive the battle.</p>
+
+      {lastResult && (
+        <div className="last-battle">
+          <p>
+            <strong>Last battle:</strong> {lastResult.score} points ·{' '}
+            {formatClock(lastResult.durationMs / 1000)} ·{' '}
+            {lastResult.endReason === 'time_up' ? 'Time up' : 'Defeated'}
+          </p>
+          <button type="button" className="text-button" onClick={showLastResult}>
+            View result
+          </button>
+        </div>
+      )}
+
+      <div className="panel__actions--row">
+        <WoodButton
+          variant="secondary"
+          onClick={() => {
+            openLog('ranking');
+          }}
+        >
+          Ranking
+        </WoodButton>
+        <WoodButton
+          variant="secondary"
+          onClick={() => {
+            openLog('history');
+          }}
+        >
+          Match history
+        </WoodButton>
+      </div>
+
+      <details className="how-to-play">
+        <summary>How to play</summary>
+        <div className="how-to-play__body">
+          <p className="panel__text">
+            Sink as many enemy ships as you can before time runs out. Chasers ram you; Shooters fire
+            from range. Each ship you sink is worth 1 point.
+          </p>
+          <h3>Keyboard</h3>
+          <dl>
+            <dt>
+              <kbd>W</kbd> / <kbd>↑</kbd>
+            </dt>
+            <dd>Sail forward</dd>
+            <dt>
+              <kbd>A</kbd> <kbd>D</kbd> / <kbd>←</kbd> <kbd>→</kbd>
+            </dt>
+            <dd>Turn left / right</dd>
+            <dt>
+              <kbd>Space</kbd> / <kbd>K</kbd>
+            </dt>
+            <dd>Front cannon</dd>
+            <dt>
+              <kbd>Q</kbd> / <kbd>J</kbd>
+            </dt>
+            <dd>Left broadside (3 shots)</dd>
+            <dt>
+              <kbd>E</kbd> / <kbd>L</kbd>
+            </dt>
+            <dd>Right broadside (3 shots)</dd>
+            <dt>
+              <kbd>Esc</kbd> / <kbd>P</kbd>
+            </dt>
+            <dd>Pause</dd>
+          </dl>
+          <h3>Touch (landscape)</h3>
+          <dl>
+            <dt>Left buttons</dt>
+            <dd>Turn left, sail forward, turn right</dd>
+            <dt>Right buttons</dt>
+            <dd>Left broadside, front cannon, right broadside</dd>
+          </dl>
+          <p className="panel__text">You can sail, turn and fire at the same time.</p>
+        </div>
+      </details>
+    </MenuLayout>
   );
 }

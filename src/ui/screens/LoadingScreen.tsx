@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useScreenStore } from '../../app/screenStore.ts';
+import { WoodButton } from '../components/buttons.tsx';
+import { MenuLayout } from '../components/MenuLayout.tsx';
 
 /** Game code (PixiJS included) is code-split: it is fetched here, with the assets. */
 async function loadGame(onProgress: (progress: number) => void): Promise<void> {
@@ -36,7 +38,10 @@ export function LoadingScreen() {
         if (cancelled) return;
         setState({
           status: 'error',
-          message: error instanceof Error ? error.message : 'The game assets could not be loaded.',
+          message:
+            error instanceof Error && error.name === 'AssetLoadError'
+              ? error.message
+              : 'The game could not be loaded. Check your connection and try again.',
         });
       });
     return () => {
@@ -51,27 +56,35 @@ export function LoadingScreen() {
 
   if (state.status === 'error') {
     return (
-      <main className="screen">
-        <h1>Loading failed</h1>
-        <p role="alert">{state.message}</p>
-        <button type="button" className="button" onClick={retry}>
-          Try again
-        </button>
-        <button type="button" className="button button--secondary" onClick={goToMenu}>
-          Main menu
-        </button>
-      </main>
+      <MenuLayout labelledBy="loading-title">
+        <h1 id="loading-title" className="panel__heading">
+          Loading failed
+        </h1>
+        <p className="field-error" role="alert">
+          {state.message}
+        </p>
+        <div className="panel__actions">
+          <WoodButton onClick={retry} autoFocus>
+            Try again
+          </WoodButton>
+          <WoodButton variant="secondary" onClick={goToMenu}>
+            Main menu
+          </WoodButton>
+        </div>
+      </MenuLayout>
     );
   }
 
   const percent = Math.round(state.progress * 100);
   return (
-    <main className="screen" aria-busy="true">
-      <h1>Preparing the fleet</h1>
-      <label className="loading">
-        <span>Loading assets: {percent}%</span>
-        <progress max={100} value={percent} />
-      </label>
-    </main>
+    <MenuLayout labelledBy="loading-title">
+      <h1 id="loading-title" className="panel__heading">
+        Preparing the fleet
+      </h1>
+      <div className="loading-bar">
+        <label htmlFor="loading-progress">Loading assets: {percent}%</label>
+        <progress id="loading-progress" max={100} value={percent} aria-busy="true" />
+      </div>
+    </MenuLayout>
   );
 }

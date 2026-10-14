@@ -1,6 +1,8 @@
 import { lazy, Suspense } from 'react';
+import { CaptainsLog } from '../ui/screens/CaptainsLog.tsx';
 import { LoadingScreen } from '../ui/screens/LoadingScreen.tsx';
 import { MainMenu } from '../ui/screens/MainMenu.tsx';
+import { OptionsScreen } from '../ui/screens/OptionsScreen.tsx';
 import { ResultScreen } from '../ui/screens/ResultScreen.tsx';
 import { useScreenStore } from './screenStore.ts';
 
@@ -16,6 +18,10 @@ export function App() {
   switch (screen) {
     case 'menu':
       return <MainMenu />;
+    case 'options':
+      return <OptionsScreen />;
+    case 'log':
+      return <CaptainsLog />;
     case 'loading':
       return <LoadingScreen />;
     case 'playing':

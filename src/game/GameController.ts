@@ -1,4 +1,5 @@
 import { Application, type Ticker } from 'pixi.js';
+import { GameAudio } from './audio/GameAudio.ts';
 import type { GameConfig } from './config/gameConfig.ts';
 import { FixedStepClock } from './core/clock.ts';
 import { Simulation, type SimulationSetup } from './core/Simulation.ts';
@@ -43,6 +44,7 @@ export class GameController {
   private readonly sim: Simulation;
   private readonly renderer: GameRenderer;
   private readonly keyboard: KeyboardInput;
+  private readonly sounds: GameAudio;
   private readonly clock: FixedStepClock;
   private readonly unsubscribe: (() => void)[] = [];
   private started = false;
@@ -81,6 +83,7 @@ export class GameController {
     host.appendChild(canvas);
 
     this.renderer = new GameRenderer(app, this.sim, textures);
+    this.sounds = new GameAudio(this.sim);
     this.keyboard = new KeyboardInput(this.input, () => options.onPauseRequested?.());
 
     // Observe the host element itself (not only the window): covers layout changes,
@@ -134,6 +137,7 @@ export class GameController {
     this.started = true;
     this.keyboard.attach();
     this.clock.reset();
+    this.sounds.start();
     this.app.ticker.add(this.tick);
     this.publishHud();
   }
@@ -144,6 +148,7 @@ export class GameController {
     this.paused = true;
     this.releaseControls();
     this.keyboard.detach();
+    this.sounds.setPaused(true);
     this.publishHud();
   }
 
@@ -152,6 +157,7 @@ export class GameController {
     if (this.destroyed || !this.paused) return;
     this.paused = false;
     this.releaseControls();
+    this.sounds.setPaused(false);
     if (this.sim.phase === 'running') this.keyboard.attach();
     this.publishHud();
   }
@@ -197,6 +203,7 @@ export class GameController {
     }
     const alpha = this.paused || this.options.manualClock ? 1 : this.clock.alpha;
     this.renderer.render(alpha, Math.min(dt, this.options.config.sim.maxFrameSec));
+    this.sounds.update();
     this.publishHud();
   };
 
@@ -240,6 +247,7 @@ export class GameController {
     this.keyboard.detach();
     for (const off of this.unsubscribe) off();
     this.unsubscribe.length = 0;
+    this.sounds.destroy();
     this.renderer.destroy();
     this.sim.destroy();
     // removeView detaches the canvas; shared textures stay in the Assets cache.
