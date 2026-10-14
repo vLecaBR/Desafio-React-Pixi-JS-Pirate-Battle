@@ -6,6 +6,7 @@ import type { MatchResult } from './core/types.ts';
 import type { HudState, HudStore } from './hudStore.ts';
 import { InputState } from './input/InputState.ts';
 import { KeyboardInput } from './input/KeyboardInput.ts';
+import { TouchInput } from './input/TouchInput.ts';
 import { GameRenderer } from './render/GameRenderer.ts';
 import { RENDER } from './render/renderConfig.ts';
 import type { GameTextures } from './render/textures.ts';
@@ -36,6 +37,8 @@ export interface GameControllerOptions {
  */
 export class GameController {
   readonly input = new InputState();
+  /** Fed by the React touch controls; ignored while paused or after the match. */
+  readonly touch = new TouchInput(this.input);
   private readonly app: Application;
   private readonly sim: Simulation;
   private readonly renderer: GameRenderer;
@@ -94,6 +97,7 @@ export class GameController {
     this.unsubscribe.push(
       this.sim.on('matchEnded', (result) => {
         this.keyboard.detach();
+        this.touch.clear();
         this.publishHud();
         options.onMatchEnded?.(result);
       }),
@@ -173,6 +177,7 @@ export class GameController {
   private releaseControls(): void {
     this.clock.reset();
     this.keyboard.clear();
+    this.touch.clear();
     this.input.clear();
     this.sim.clearIntents();
   }

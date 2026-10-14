@@ -25,12 +25,19 @@ export function MainMenu() {
       </button>
       <section className="controls-help" aria-label="Controls">
         <h2>Controls</h2>
+        <h3>Keyboard</h3>
         <ul>
           <li>W / Up arrow: sail forward</li>
           <li>A, D / Left, Right arrows: turn</li>
           <li>Space / K: front cannon</li>
           <li>Q / J and E / L: left and right broadsides</li>
           <li>Esc / P: pause</li>
+        </ul>
+        <h3>Touch (landscape)</h3>
+        <ul>
+          <li>Left buttons: turn left, sail forward, turn right</li>
+          <li>Right buttons: left broadside, front cannon, right broadside</li>
+          <li>Hold several buttons at once to sail and fire together</li>
         </ul>
       </section>
     </main>

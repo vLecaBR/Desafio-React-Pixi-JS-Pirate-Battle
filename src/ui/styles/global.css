@@ -175,3 +175,147 @@ body {
   gap: 0.75rem;
   background: rgb(5 20 30 / 0.7);
 }
+
+.controls-help h3 {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: var(--color-ink-muted);
+}
+
+/* Touch controls (bottom corners, clear of the safe areas). */
+.touch-controls {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 max(0.75rem, env(safe-area-inset-right)) max(0.75rem, env(safe-area-inset-bottom))
+    max(0.75rem, env(safe-area-inset-left));
+  pointer-events: none;
+}
+
+.touch-controls__group {
+  display: flex;
+  gap: clamp(0.25rem, 1.5vw, 0.75rem);
+  align-items: flex-end;
+}
+
+.touch-controls__group > :nth-child(2) {
+  margin-bottom: clamp(2rem, 9vh, 3.5rem);
+}
+
+.touch-button {
+  width: clamp(56px, 9vw, 72px);
+  height: clamp(56px, 9vw, 72px);
+  padding: 0;
+  border: 0;
+  background: url('/assets/png/default/ui/controls/button_round_normal.png') center / contain
+    no-repeat;
+  background-image: image-set(
+    url('/assets/png/default/ui/controls/button_round_normal.png') 1x,
+    url('/assets/png/retina/ui/controls/button_round_normal.png') 2x
+  );
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  cursor: pointer;
+}
+
+.touch-button[data-pressed] {
+  background-image: image-set(
+    url('/assets/png/default/ui/controls/button_round_pressed.png') 1x,
+    url('/assets/png/retina/ui/controls/button_round_pressed.png') 2x
+  );
+}
+
+.touch-button:disabled {
+  opacity: 0.5;
+}
+
+.touch-button img {
+  width: 50%;
+  height: 50%;
+  pointer-events: none;
+}
+
+.match-hint {
+  position: absolute;
+  left: 50%;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  max-width: min(90vw, 40rem);
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  background: rgb(0 0 0 / 0.6);
+  text-align: center;
+  font-weight: 600;
+  pointer-events: none;
+  animation: hint-fade 4.5s ease-in forwards;
+}
+
+@keyframes hint-fade {
+  0%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .match-hint {
+    animation: none;
+  }
+}
+
+.dialog {
+  min-width: min(22rem, 90vw);
+  padding: 1.5rem;
+  border: 3px solid #3b2410;
+  border-radius: 1rem;
+  background: #f3dfb6;
+  color: #2a1606;
+  text-align: center;
+}
+
+.dialog::backdrop {
+  background: rgb(5 20 30 / 0.65);
+}
+
+.dialog h2 {
+  margin-top: 0;
+}
+
+.dialog__actions {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+}
+
+.dialog__note {
+  margin-bottom: 0;
+  font-size: 0.875rem;
+}
+
+.rotate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: var(--color-sea-deep);
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.rotate-overlay__icon {
+  transform: rotate(90deg);
+}
