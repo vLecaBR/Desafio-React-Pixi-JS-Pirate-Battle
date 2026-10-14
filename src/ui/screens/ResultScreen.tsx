@@ -2,6 +2,7 @@ import { useScreenStore } from '../../app/screenStore.ts';
 import { useLastResultStore } from '../../persistence/lastResultStore.ts';
 import { WoodButton } from '../components/buttons.tsx';
 import { MenuLayout } from '../components/MenuLayout.tsx';
+import { RegistrationStatusLine } from '../components/RegistrationStatus.tsx';
 import { formatClock } from '../format.ts';
 import { useFocusOnMount } from '../hooks/useFocusOnMount.ts';
 
@@ -40,6 +41,7 @@ export function ResultScreen() {
         <span aria-label="Time played">{formatClock(result.durationMs / 1000)}</span> ·{' '}
         <span>{timeUp ? 'Time up' : 'Defeated'}</span>
       </p>
+      <RegistrationStatusLine matchId={result.matchId} confirmed={result.registered} />
       <div className="panel__actions">
         <WoodButton onClick={startMatch}>Play again</WoodButton>
         <WoodButton onClick={goToMenu}>Main menu</WoodButton>

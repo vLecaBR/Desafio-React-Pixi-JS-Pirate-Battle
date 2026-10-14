@@ -1,4 +1,7 @@
 import { create } from 'zustand';
+import type { MatchRecord } from '../data/contracts.ts';
+import { getLocalPlayer } from '../data/player.ts';
+import { registration } from '../data/services.ts';
 import { createMatchConfig, type GameConfig } from '../game/config/gameConfig.ts';
 import type { MatchResult } from '../game/core/types.ts';
 import { requestedSeed } from '../game/testing/testHooks.ts';
@@ -26,6 +29,7 @@ interface ScreenState {
   readonly session: MatchSession | null;
   startMatch: () => void;
   assetsReady: () => void;
+  /** Records a completed match (last result + registration). Does not change screen. */
   finishMatch: (result: MatchResult) => void;
   openOptions: () => void;
   openLog: (tab: LogTab) => void;
@@ -59,15 +63,33 @@ export const useScreenStore = create<ScreenState>()((set, get) => ({
   finishMatch: (result) => {
     const session = get().session;
     if (!session) return;
-    useLastResultStore.getState().save({
-      ...result,
+    const player = getLocalPlayer();
+    // The match id is created once, when the match ends: it is the idempotency key
+    // of every (re)send of this record.
+    const record: MatchRecord = {
+      matchId: crypto.randomUUID(),
+      playerId: player.playerId,
+      playerName: player.playerName,
       playedAt: new Date().toISOString(),
+      score: result.score,
+      durationMs: result.durationMs,
+      endReason: result.endReason,
       settings: {
         sessionTimeSec: session.config.match.sessionTimeSec,
         spawnIntervalSec: session.config.spawn.intervalSec,
       },
+    };
+    useLastResultStore.getState().save({
+      matchId: record.matchId,
+      score: record.score,
+      durationMs: record.durationMs,
+      endReason: record.endReason,
+      playedAt: record.playedAt,
+      settings: record.settings,
+      registered: false,
     });
-    set({ screen: 'result' });
+    // Queued and sent in the background; never blocks Play again / Main menu.
+    void registration.submit(record);
   },
   openOptions: () => {
     set({ screen: 'options' });

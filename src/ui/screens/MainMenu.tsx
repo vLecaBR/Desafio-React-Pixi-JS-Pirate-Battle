@@ -1,4 +1,5 @@
 import { useScreenStore } from '../../app/screenStore.ts';
+import { registration, usePendingEntries } from '../../data/services.ts';
 import { useLastResultStore } from '../../persistence/lastResultStore.ts';
 import { WoodButton } from '../components/buttons.tsx';
 import { MenuLayout } from '../components/MenuLayout.tsx';
@@ -13,6 +14,7 @@ export function MainMenu() {
   const showLastResult = useScreenStore((state) => state.showLastResult);
   const lastResult = useLastResultStore((state) => state.lastResult);
   const headingRef = useFocusOnMount<HTMLHeadingElement>();
+  const pending = usePendingEntries();
 
   return (
     <MenuLayout labelledBy="menu-title" corner={<MuteButton />}>
@@ -46,6 +48,25 @@ export function MainMenu() {
           </p>
           <button type="button" className="text-button" onClick={showLastResult}>
             View result
+          </button>
+        </div>
+      )}
+
+      {pending.length > 0 && (
+        <div className="last-battle" role="status">
+          <p>
+            {pending.length === 1
+              ? '1 battle is waiting to be saved.'
+              : `${pending.length} battles are waiting to be saved.`}
+          </p>
+          <button
+            type="button"
+            className="text-button"
+            onClick={() => {
+              void registration.flush();
+            }}
+          >
+            Retry
           </button>
         </div>
       )}

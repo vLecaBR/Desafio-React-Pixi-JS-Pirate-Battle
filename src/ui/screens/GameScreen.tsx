@@ -25,6 +25,7 @@ const RESULT_DELAY_MS = 1200;
  */
 export function GameScreen({ session }: { readonly session: MatchSession }) {
   const finishMatch = useScreenStore((state) => state.finishMatch);
+  const showLastResult = useScreenStore((state) => state.showLastResult);
   const goToMenu = useScreenStore((state) => state.goToMenu);
   const [hud] = useState(() => createHudStore());
   const [controller, setController] = useState<GameController | null>(null);
@@ -93,13 +94,13 @@ export function GameScreen({ session }: { readonly session: MatchSession }) {
 
   const onMatchEnded = useCallback(
     (result: MatchResult) => {
+      // Record immediately: the match counts even if the player leaves right away.
+      finishMatch(result);
       setEnded(true);
       setPauseReason(null);
-      resultTimer.current = window.setTimeout(() => {
-        finishMatch(result);
-      }, RESULT_DELAY_MS);
+      resultTimer.current = window.setTimeout(showLastResult, RESULT_DELAY_MS);
     },
-    [finishMatch],
+    [finishMatch, showLastResult],
   );
 
   const onError = useCallback((cause: unknown) => {

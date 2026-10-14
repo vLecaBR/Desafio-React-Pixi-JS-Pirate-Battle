@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { useScreenStore, type LogTab } from '../../app/screenStore.ts';
+import { registration } from '../../data/services.ts';
 import { WoodButton } from '../components/buttons.tsx';
 import { MenuLayout } from '../components/MenuLayout.tsx';
 import { Tabs } from '../components/Tabs.tsx';
@@ -16,6 +18,11 @@ export function CaptainsLog() {
   const setLogTab = useScreenStore((state) => state.setLogTab);
   const goToMenu = useScreenStore((state) => state.goToMenu);
   const headingRef = useFocusOnMount<HTMLHeadingElement>();
+
+  // Opening the log is a good moment to send any registration still pending.
+  useEffect(() => {
+    void registration.flush();
+  }, []);
 
   return (
     <MenuLayout wide labelledBy="log-title">
