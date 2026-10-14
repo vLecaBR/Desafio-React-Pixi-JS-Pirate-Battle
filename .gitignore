@@ -14,3 +14,15 @@ dist/
 
 # Logs
 *.log
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Playwright transient output (curated reports live in reports/)
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Vercel
+.vercel

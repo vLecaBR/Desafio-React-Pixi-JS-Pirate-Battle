@@ -1,0 +1,8 @@
+node_modules
+dist
+public/assets
+public/mockServiceWorker.js
+reports
+docs/profiling
+package-lock.json
+CHALLENGE.md

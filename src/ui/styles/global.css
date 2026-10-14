@@ -1,0 +1,62 @@
+:root {
+  color-scheme: dark;
+  --color-ink: #fff8e7;
+  --color-ink-muted: #e6d6b3;
+  --color-sea-deep: #0b2a3a;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  color: var(--color-ink);
+  background: var(--color-sea-deep);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+}
+
+.placeholder {
+  min-height: 100%;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.75rem;
+  padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right))
+    max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  text-align: center;
+  background:
+    linear-gradient(rgb(5 20 30 / 0.55), rgb(5 20 30 / 0.55)),
+    url('/assets/ui_scene_background.png') center / cover no-repeat,
+    var(--color-sea-deep);
+}
+
+.placeholder__title {
+  width: min(384px, 80vw);
+  height: auto;
+}
+
+.placeholder__tagline {
+  margin: 0;
+  font-size: clamp(1rem, 2.5vw, 1.375rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px rgb(0 0 0 / 0.6);
+}
+
+.placeholder__status {
+  margin: 0;
+  color: var(--color-ink-muted);
+  text-shadow: 0 1px 3px rgb(0 0 0 / 0.6);
+}
