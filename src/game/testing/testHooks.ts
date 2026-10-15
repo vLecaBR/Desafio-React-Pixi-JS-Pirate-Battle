@@ -48,6 +48,9 @@ const params = typeof window === 'undefined' ? null : new URLSearchParams(window
 
 export const isTestMode = params?.get('e2e') === '1';
 
+/** Profiling mode (`?perf=1`): real clock, but the state hooks are available. */
+export const isPerfMode = params?.get('perf') === '1';
+
 /** Fixed seed requested through `?seed=` (test and demo reproducibility). */
 export const requestedSeed: number | null = (() => {
   const raw = params?.get('seed');
@@ -109,7 +112,7 @@ const hooks: TestHooks = {
 
 /** Registers the active controller (or clears it with null). No-op outside test mode. */
 export function setTestController(controller: GameController | null): void {
-  if (!isTestMode) return;
+  if (!isTestMode && !isPerfMode) return;
   current = controller;
   window.__PB__ = hooks;
 }

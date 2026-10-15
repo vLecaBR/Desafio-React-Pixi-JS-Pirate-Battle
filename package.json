@@ -28,6 +28,7 @@
     "test:visual:docker": "node scripts/visual-docker.mjs",
     "test:visual:docker:update": "node scripts/visual-docker.mjs --update-snapshots",
     "perf": "playwright test -c playwright.perf.config.ts",
+    "perf:report": "node scripts/profile-report.mjs",
     "report": "playwright show-report reports/playwright-html"
   },
   "msw": {

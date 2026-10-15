@@ -1174,3 +1174,19 @@ kbd {
   color: var(--color-ink);
   font: inherit;
 }
+
+.perf-overlay {
+  position: fixed;
+  left: 50%;
+  bottom: 0.25rem;
+  transform: translateX(-50%);
+  z-index: 20;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.3rem;
+  background: rgb(0 0 0 / 0.65);
+  color: #b8f08a;
+  font:
+    600 0.75rem/1.4 ui-monospace,
+    monospace;
+  pointer-events: none;
+}

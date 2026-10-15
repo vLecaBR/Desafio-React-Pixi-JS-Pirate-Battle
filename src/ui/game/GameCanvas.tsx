@@ -4,6 +4,7 @@ import type { MatchResult } from '../../game/core/types.ts';
 import { GameController } from '../../game/GameController.ts';
 import type { HudStore } from '../../game/hudStore.ts';
 import { getLoadedTextures } from '../../game/render/textures.ts';
+import { perfMonitor } from '../../game/testing/perfMonitor.ts';
 import { isTestMode, setTestController } from '../../game/testing/testHooks.ts';
 
 interface GameCanvasProps {
@@ -44,6 +45,7 @@ export function GameCanvas(props: GameCanvasProps) {
       textures,
       hud,
       manualClock: isTestMode,
+      perf: perfMonitor,
       ...(session.setup ? { setup: session.setup } : {}),
       onMatchEnded: (result) => {
         callbacks.current.onMatchEnded(result);

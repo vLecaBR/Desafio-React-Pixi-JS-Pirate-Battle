@@ -70,9 +70,16 @@ export const PRESETS = {
   },
   /** Normal spawning (interval from Options), first spawn after the usual delay. */
   'spawn-test': { overrides: {} },
-  /** Profiling: dense combat, one spawn per second for three minutes. */
+  /**
+   * Profiling: dense combat (one spawn per second, up to 10 enemies) for a full
+   * three-minute match. The player's health is raised so the run lasts 180 s.
+   */
   stress: {
-    overrides: { match: { sessionTimeSec: 180 }, spawn: { intervalSec: 1, maxAlive: 10 } },
+    overrides: {
+      match: { sessionTimeSec: 180 },
+      spawn: { intervalSec: 1, maxAlive: 10 },
+      player: { maxHealth: 100_000 },
+    },
   },
 } as const satisfies Record<string, GamePreset>;
 

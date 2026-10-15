@@ -38,6 +38,8 @@ export interface GameTextures {
   readonly ship: (skin: ShipSkin, state: number) => Texture;
   readonly tile: (id: TileId) => Texture;
   readonly water: Texture;
+  /** White ring used for water splashes (drawn once, shared by every match). */
+  readonly ring: Texture;
   readonly cannonBall: Texture;
   readonly explosions: readonly [Texture, Texture, Texture];
   readonly fires: readonly [Texture, Texture];
@@ -184,6 +186,27 @@ function readFillRect(sheet: Spritesheet, frame: string): Rectangle {
   throw new AssetLoadError(new Error(`Missing fill_rect metadata for "${frame}"`));
 }
 
+/**
+ * Draws the splash ring on a 2D canvas once. It must be created a single time and
+ * reused: PixiJS caches a bind group per combination of texture sources, so a new
+ * source per match (e.g. `renderer.generateTexture`) would be retained forever.
+ */
+function createRingTexture(): Texture {
+  const size = 48;
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const context = canvas.getContext('2d');
+  if (context) {
+    context.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+    context.lineWidth = 3;
+    context.beginPath();
+    context.arc(size / 2, size / 2, 18, 0, Math.PI * 2);
+    context.stroke();
+  }
+  return Texture.from(canvas);
+}
+
 function buildTextures(): GameTextures {
   const ships = Assets.get<Spritesheet>('pb-ships');
   const ui = Assets.get<Spritesheet>('pb-ui');
@@ -222,6 +245,7 @@ function buildTextures(): GameTextures {
     },
     tile,
     water: tile(73),
+    ring: createRingTexture(),
     cannonBall: frameOf(ships, 'cannon_ball'),
     explosions: [
       frameOf(ships, 'explosion_1'),

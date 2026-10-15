@@ -1,4 +1,4 @@
-import { Container, Graphics, TilingSprite, type Application, type Texture } from 'pixi.js';
+import { Container, Graphics, TilingSprite, type Application } from 'pixi.js';
 import { angleDelta } from '../core/math.ts';
 import type { Simulation } from '../core/Simulation.ts';
 import type { EnemyShip, PlayerShip } from '../core/types.ts';
@@ -37,7 +37,6 @@ export class GameRenderer {
   private readonly effects: EffectsSystem;
   private readonly barLayer = new Container({ label: 'health-bars' });
   private readonly barCache: FillTextureCache;
-  private readonly ringTexture: Texture;
   private readonly playerView: ShipView;
   private readonly enemyViews = new Map<number, ShipView>();
   private readonly seen = new Set<number>();
@@ -57,8 +56,7 @@ export class GameRenderer {
     this.tileMap = new TileMapView(map, textures);
     this.barCache = new FillTextureCache(textures);
     this.projectiles = new ProjectileLayer(textures);
-    this.ringTexture = createRingTexture(app);
-    this.effects = new EffectsSystem(textures, this.ringTexture);
+    this.effects = new EffectsSystem(textures, textures.ring);
 
     this.world.addChild(
       this.tileMap.container,
@@ -227,8 +225,6 @@ export class GameRenderer {
     this.world.destroy({ children: true });
     this.water.destroy();
     this.outside.destroy();
-    // The ring texture is owned by this renderer (the others are shared).
-    this.ringTexture.destroy(true);
   }
 }
 
@@ -242,13 +238,6 @@ function syncShip(
   const y = ship.prevY + (ship.y - ship.prevY) * alpha;
   const heading = ship.prevHeading + angleDelta(ship.prevHeading, ship.heading) * alpha;
   view.update(x, y, heading, ship.hp, ship.maxHp, dt);
-}
-
-function createRingTexture(app: Application): Texture {
-  const ring = new Graphics().circle(0, 0, 18).stroke({ width: 3, color: 0xffffff, alpha: 0.9 });
-  const texture = app.renderer.generateTexture({ target: ring, resolution: 2, antialias: true });
-  ring.destroy();
-  return texture;
 }
 
 function countDisplayObjects(root: Container): number {

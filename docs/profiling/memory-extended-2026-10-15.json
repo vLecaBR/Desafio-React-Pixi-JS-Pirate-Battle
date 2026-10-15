@@ -1,0 +1,145 @@
+{
+  "kind": "memory-cycles",
+  "environment": {
+    "date": "2026-10-15T00:57:12.705Z",
+    "browser": "Chromium 156.0.8078.4",
+    "headless": true,
+    "os": "Windows_NT 10.0.26200 (x64)",
+    "cpu": "Intel(R) Core(TM) i7-8700T CPU @ 2.40GHz × 12 threads",
+    "memoryGb": 16,
+    "softwareGl": false,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "devicePixelRatio": 1,
+    "webglRenderer": "ANGLE (NVIDIA, NVIDIA GeForce GTX 1650 (0x00001F82) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "hardwareConcurrency": 12
+  },
+  "config": {
+    "preset": "stress",
+    "seed": 5,
+    "cycles": 12,
+    "playMsPerCycle": 10000
+  },
+  "results": [
+    {
+      "cycle": 0,
+      "jsHeapUsedMb": 4.02,
+      "jsHeapTotalMb": 4.73,
+      "domNodes": 165,
+      "jsEventListeners": 180,
+      "documents": 2,
+      "canvases": 0
+    },
+    {
+      "cycle": 1,
+      "jsHeapUsedMb": 8.24,
+      "jsHeapTotalMb": 8.8,
+      "domNodes": 243,
+      "jsEventListeners": 214,
+      "documents": 2,
+      "canvases": 0
+    },
+    {
+      "cycle": 2,
+      "jsHeapUsedMb": 8.53,
+      "jsHeapTotalMb": 9.3,
+      "domNodes": 243,
+      "jsEventListeners": 213,
+      "documents": 2,
+      "canvases": 0
+    },
+    {
+      "cycle": 3,
+      "jsHeapUsedMb": 8.81,
+      "jsHeapTotalMb": 9.55,
+      "domNodes": 243,
+      "jsEventListeners": 213,
+      "documents": 2,
+      "canvases": 0
+    },
+    {
+      "cycle": 4,
+      "jsHeapUsedMb": 8.93,
+      "jsHeapTotalMb": 9.8,
+      "domNodes": 243,
+      "jsEventListeners": 214,
+      "documents": 2,
+      "canvases": 0
+    },
+    {
+      "cycle": 5,
+      "jsHeapUsedMb": 9.13,
+      "jsHeapTotalMb": 9.8,
+      "domNodes": 243,
+      "jsEventListeners": 214,
+      "documents": 2,
+      "canvases": 0
+    },
+    {
+      "cycle": 6,
+      "jsHeapUsedMb": 9.18,
+      "jsHeapTotalMb": 10.05,
+      "domNodes": 243,
+      "jsEventListeners": 213,
+      "documents": 2,
+      "canvases": 0
+    },
+    {
+      "cycle": 7,
+      "jsHeapUsedMb": 9.23,
+      "jsHeapTotalMb": 10.3,
+      "domNodes": 243,
+      "jsEventListeners": 214,
+      "documents": 2,
+      "canvases": 0
+    },
+    {
+      "cycle": 8,
+      "jsHeapUsedMb": 9.3,
+      "jsHeapTotalMb": 10.05,
+      "domNodes": 243,
+      "jsEventListeners": 213,
+      "documents": 2,
+      "canvases": 0
+    },
+    {
+      "cycle": 9,
+      "jsHeapUsedMb": 9.69,
+      "jsHeapTotalMb": 10.55,
+      "domNodes": 243,
+      "jsEventListeners": 213,
+      "documents": 2,
+      "canvases": 0
+    },
+    {
+      "cycle": 10,
+      "jsHeapUsedMb": 9.78,
+      "jsHeapTotalMb": 10.55,
+      "domNodes": 243,
+      "jsEventListeners": 213,
+      "documents": 2,
+      "canvases": 0
+    },
+    {
+      "cycle": 11,
+      "jsHeapUsedMb": 9.84,
+      "jsHeapTotalMb": 10.55,
+      "domNodes": 243,
+      "jsEventListeners": 213,
+      "documents": 2,
+      "canvases": 0
+    },
+    {
+      "cycle": 12,
+      "jsHeapUsedMb": 9.87,
+      "jsHeapTotalMb": 10.55,
+      "domNodes": 243,
+      "jsEventListeners": 214,
+      "documents": 2,
+      "canvases": 0
+    }
+  ]
+}

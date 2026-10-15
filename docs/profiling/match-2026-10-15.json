@@ -1,0 +1,2917 @@
+{
+  "kind": "three-minute-match",
+  "environment": {
+    "date": "2026-10-15T00:52:02.529Z",
+    "browser": "Chromium 156.0.8078.4",
+    "headless": true,
+    "os": "Windows_NT 10.0.26200 (x64)",
+    "cpu": "Intel(R) Core(TM) i7-8700T CPU @ 2.40GHz × 12 threads",
+    "memoryGb": 16,
+    "softwareGl": false,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "devicePixelRatio": 1,
+    "webglRenderer": "ANGLE (NVIDIA, NVIDIA GeForce GTX 1650 (0x00001F82) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "hardwareConcurrency": 12
+  },
+  "config": {
+    "preset": "stress",
+    "seed": 3,
+    "sessionTimeSec": 180,
+    "spawnIntervalSec": 1,
+    "maxAlive": 10
+  },
+  "match": {
+    "phase": "ended",
+    "elapsedMs": 180000,
+    "score": 60,
+    "spawnsSoFar": 135
+  },
+  "report": {
+    "frames": 10797,
+    "durationSec": 180.026,
+    "avgFps": 60,
+    "frameMs": {
+      "avg": 16.67,
+      "p50": 16.7,
+      "p95": 16.7,
+      "p99": 16.8,
+      "max": 100
+    },
+    "updateMs": {
+      "avg": 0.18,
+      "p50": 0.2,
+      "p95": 0.4,
+      "p99": 0.5,
+      "max": 3.2
+    },
+    "framesOver": {
+      "ms25": 1,
+      "ms33_3": 1
+    },
+    "entities": {
+      "ships": {
+        "avg": 9.9,
+        "max": 11
+      },
+      "projectiles": {
+        "avg": 1.7,
+        "max": 7
+      },
+      "effects": {
+        "avg": 12.4,
+        "max": 45
+      },
+      "displayObjects": {
+        "avg": 198.3,
+        "max": 217
+      }
+    },
+    "heapUsedMb": 13
+  },
+  "samples": [
+    {
+      "t": 500,
+      "fps": 50,
+      "ships": 1,
+      "projectiles": 6,
+      "effects": 1,
+      "displayObjects": 97
+    },
+    {
+      "t": 1017,
+      "fps": 60,
+      "ships": 1,
+      "projectiles": 1,
+      "effects": 3,
+      "displayObjects": 97
+    },
+    {
+      "t": 1517,
+      "fps": 60,
+      "ships": 2,
+      "projectiles": 1,
+      "effects": 1,
+      "displayObjects": 104
+    },
+    {
+      "t": 2017,
+      "fps": 60,
+      "ships": 2,
+      "projectiles": 3,
+      "effects": 3,
+      "displayObjects": 106
+    },
+    {
+      "t": 2517,
+      "fps": 60,
+      "ships": 3,
+      "projectiles": 0,
+      "effects": 3,
+      "displayObjects": 113
+    },
+    {
+      "t": 3017,
+      "fps": 60,
+      "ships": 3,
+      "projectiles": 4,
+      "effects": 5,
+      "displayObjects": 114
+    },
+    {
+      "t": 3517,
+      "fps": 60,
+      "ships": 4,
+      "projectiles": 4,
+      "effects": 1,
+      "displayObjects": 121
+    },
+    {
+      "t": 4033,
+      "fps": 60,
+      "ships": 4,
+      "projectiles": 0,
+      "effects": 3,
+      "displayObjects": 121
+    },
+    {
+      "t": 4550,
+      "fps": 60,
+      "ships": 5,
+      "projectiles": 5,
+      "effects": 1,
+      "displayObjects": 128
+    },
+    {
+      "t": 5050,
+      "fps": 60,
+      "ships": 5,
+      "projectiles": 0,
+      "effects": 3,
+      "displayObjects": 128
+    },
+    {
+      "t": 5550,
+      "fps": 60,
+      "ships": 6,
+      "projectiles": 1,
+      "effects": 1,
+      "displayObjects": 135
+    },
+    {
+      "t": 6050,
+      "fps": 60,
+      "ships": 6,
+      "projectiles": 4,
+      "effects": 1,
+      "displayObjects": 135
+    },
+    {
+      "t": 6566,
+      "fps": 60,
+      "ships": 7,
+      "projectiles": 0,
+      "effects": 5,
+      "displayObjects": 142
+    },
+    {
+      "t": 7066,
+      "fps": 60,
+      "ships": 7,
+      "projectiles": 1,
+      "effects": 1,
+      "displayObjects": 142
+    },
+    {
+      "t": 7583,
+      "fps": 60,
+      "ships": 8,
+      "projectiles": 3,
+      "effects": 0,
+      "displayObjects": 149
+    },
+    {
+      "t": 8083,
+      "fps": 60,
+      "ships": 8,
+      "projectiles": 0,
+      "effects": 3,
+      "displayObjects": 149
+    },
+    {
+      "t": 8583,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 3,
+      "effects": 2,
+      "displayObjects": 156
+    },
+    {
+      "t": 9083,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 3,
+      "effects": 9,
+      "displayObjects": 159
+    },
+    {
+      "t": 9600,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 8,
+      "displayObjects": 171
+    },
+    {
+      "t": 10100,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 4,
+      "effects": 15,
+      "displayObjects": 167
+    },
+    {
+      "t": 10600,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 9,
+      "displayObjects": 174
+    },
+    {
+      "t": 11116,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 10,
+      "displayObjects": 167
+    },
+    {
+      "t": 11616,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 5,
+      "displayObjects": 174
+    },
+    {
+      "t": 12133,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 2,
+      "displayObjects": 174
+    },
+    {
+      "t": 12650,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 23,
+      "displayObjects": 173
+    },
+    {
+      "t": 13150,
+      "fps": 60,
+      "ships": 8,
+      "projectiles": 3,
+      "effects": 17,
+      "displayObjects": 168
+    },
+    {
+      "t": 13650,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 10,
+      "displayObjects": 175
+    },
+    {
+      "t": 14166,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 6,
+      "effects": 5,
+      "displayObjects": 175
+    },
+    {
+      "t": 14666,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 5,
+      "displayObjects": 182
+    },
+    {
+      "t": 15166,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 3,
+      "displayObjects": 182
+    },
+    {
+      "t": 15683,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 3,
+      "effects": 18,
+      "displayObjects": 175
+    },
+    {
+      "t": 16199,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 5,
+      "displayObjects": 175
+    },
+    {
+      "t": 16699,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 2,
+      "displayObjects": 182
+    },
+    {
+      "t": 17199,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 3,
+      "effects": 10,
+      "displayObjects": 175
+    },
+    {
+      "t": 17716,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 20,
+      "displayObjects": 181
+    },
+    {
+      "t": 18233,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 7,
+      "displayObjects": 181
+    },
+    {
+      "t": 18733,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 22,
+      "displayObjects": 181
+    },
+    {
+      "t": 19233,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 12,
+      "displayObjects": 181
+    },
+    {
+      "t": 19733,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 5,
+      "displayObjects": 188
+    },
+    {
+      "t": 20233,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 4,
+      "displayObjects": 188
+    },
+    {
+      "t": 20749,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 9,
+      "displayObjects": 195
+    },
+    {
+      "t": 21266,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 5,
+      "effects": 3,
+      "displayObjects": 195
+    },
+    {
+      "t": 21783,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 19,
+      "displayObjects": 195
+    },
+    {
+      "t": 22283,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 10,
+      "displayObjects": 195
+    },
+    {
+      "t": 22799,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 5,
+      "effects": 1,
+      "displayObjects": 195
+    },
+    {
+      "t": 23299,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 3,
+      "effects": 8,
+      "displayObjects": 195
+    },
+    {
+      "t": 23799,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 4,
+      "displayObjects": 195
+    },
+    {
+      "t": 24316,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 8,
+      "displayObjects": 195
+    },
+    {
+      "t": 24816,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 11,
+      "displayObjects": 195
+    },
+    {
+      "t": 25316,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 6,
+      "displayObjects": 195
+    },
+    {
+      "t": 25832,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 14,
+      "displayObjects": 195
+    },
+    {
+      "t": 26349,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 22,
+      "displayObjects": 188
+    },
+    {
+      "t": 26849,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 4,
+      "effects": 22,
+      "displayObjects": 188
+    },
+    {
+      "t": 27349,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 23,
+      "displayObjects": 191
+    },
+    {
+      "t": 27849,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 8,
+      "displayObjects": 198
+    },
+    {
+      "t": 28349,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 4,
+      "effects": 21,
+      "displayObjects": 191
+    },
+    {
+      "t": 28849,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 9,
+      "displayObjects": 198
+    },
+    {
+      "t": 29349,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 9,
+      "displayObjects": 198
+    },
+    {
+      "t": 29866,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 17,
+      "displayObjects": 198
+    },
+    {
+      "t": 30366,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 14,
+      "displayObjects": 191
+    },
+    {
+      "t": 30882,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 3,
+      "effects": 13,
+      "displayObjects": 198
+    },
+    {
+      "t": 31382,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 23,
+      "displayObjects": 200
+    },
+    {
+      "t": 31899,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 1,
+      "displayObjects": 200
+    },
+    {
+      "t": 32415,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 10,
+      "displayObjects": 200
+    },
+    {
+      "t": 32915,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 3,
+      "effects": 7,
+      "displayObjects": 200
+    },
+    {
+      "t": 33415,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 11,
+      "displayObjects": 200
+    },
+    {
+      "t": 33915,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 31,
+      "displayObjects": 193
+    },
+    {
+      "t": 34432,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 4,
+      "effects": 7,
+      "displayObjects": 193
+    },
+    {
+      "t": 34932,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 7,
+      "displayObjects": 200
+    },
+    {
+      "t": 35432,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 5,
+      "effects": 7,
+      "displayObjects": 200
+    },
+    {
+      "t": 35949,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 12,
+      "displayObjects": 200
+    },
+    {
+      "t": 36449,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 17,
+      "displayObjects": 193
+    },
+    {
+      "t": 36965,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 40,
+      "displayObjects": 194
+    },
+    {
+      "t": 37465,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 10,
+      "displayObjects": 194
+    },
+    {
+      "t": 37982,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 6,
+      "effects": 11,
+      "displayObjects": 201
+    },
+    {
+      "t": 38482,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 17,
+      "displayObjects": 201
+    },
+    {
+      "t": 38998,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 10,
+      "displayObjects": 208
+    },
+    {
+      "t": 39498,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 4,
+      "effects": 7,
+      "displayObjects": 208
+    },
+    {
+      "t": 39998,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 2,
+      "effects": 36,
+      "displayObjects": 194
+    },
+    {
+      "t": 40498,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 5,
+      "displayObjects": 194
+    },
+    {
+      "t": 40998,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 11,
+      "displayObjects": 201
+    },
+    {
+      "t": 41498,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 18,
+      "displayObjects": 201
+    },
+    {
+      "t": 41998,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 20,
+      "displayObjects": 201
+    },
+    {
+      "t": 42515,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 28,
+      "displayObjects": 201
+    },
+    {
+      "t": 43015,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 19,
+      "displayObjects": 201
+    },
+    {
+      "t": 43532,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 11,
+      "displayObjects": 208
+    },
+    {
+      "t": 44032,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 5,
+      "displayObjects": 208
+    },
+    {
+      "t": 44548,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 1,
+      "displayObjects": 208
+    },
+    {
+      "t": 45048,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 4,
+      "effects": 13,
+      "displayObjects": 208
+    },
+    {
+      "t": 45565,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 27,
+      "displayObjects": 208
+    },
+    {
+      "t": 46065,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 17,
+      "displayObjects": 201
+    },
+    {
+      "t": 46565,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 4,
+      "effects": 17,
+      "displayObjects": 208
+    },
+    {
+      "t": 47082,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 8,
+      "displayObjects": 208
+    },
+    {
+      "t": 47582,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 9,
+      "displayObjects": 208
+    },
+    {
+      "t": 48098,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 9,
+      "displayObjects": 208
+    },
+    {
+      "t": 48598,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 10,
+      "displayObjects": 208
+    },
+    {
+      "t": 49098,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 20,
+      "displayObjects": 201
+    },
+    {
+      "t": 49615,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 29,
+      "displayObjects": 201
+    },
+    {
+      "t": 50115,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 2,
+      "effects": 21,
+      "displayObjects": 194
+    },
+    {
+      "t": 50615,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 5,
+      "effects": 25,
+      "displayObjects": 194
+    },
+    {
+      "t": 51131,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 10,
+      "displayObjects": 194
+    },
+    {
+      "t": 51648,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 5,
+      "displayObjects": 201
+    },
+    {
+      "t": 52165,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 32,
+      "displayObjects": 194
+    },
+    {
+      "t": 52665,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 17,
+      "displayObjects": 201
+    },
+    {
+      "t": 53181,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 6,
+      "displayObjects": 201
+    },
+    {
+      "t": 53681,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 4,
+      "effects": 13,
+      "displayObjects": 208
+    },
+    {
+      "t": 54181,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 15,
+      "displayObjects": 208
+    },
+    {
+      "t": 54681,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 10,
+      "displayObjects": 208
+    },
+    {
+      "t": 55181,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 28,
+      "displayObjects": 201
+    },
+    {
+      "t": 55698,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 5,
+      "displayObjects": 208
+    },
+    {
+      "t": 56198,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 27,
+      "displayObjects": 201
+    },
+    {
+      "t": 56698,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 19,
+      "displayObjects": 208
+    },
+    {
+      "t": 57198,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 4,
+      "displayObjects": 208
+    },
+    {
+      "t": 57714,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 4,
+      "effects": 18,
+      "displayObjects": 201
+    },
+    {
+      "t": 58214,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 25,
+      "displayObjects": 194
+    },
+    {
+      "t": 58714,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 6,
+      "displayObjects": 201
+    },
+    {
+      "t": 59231,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 13,
+      "displayObjects": 201
+    },
+    {
+      "t": 59748,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 22,
+      "displayObjects": 194
+    },
+    {
+      "t": 60248,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 2,
+      "effects": 8,
+      "displayObjects": 194
+    },
+    {
+      "t": 60764,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 2,
+      "effects": 25,
+      "displayObjects": 194
+    },
+    {
+      "t": 61281,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 4,
+      "displayObjects": 194
+    },
+    {
+      "t": 61781,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 6,
+      "displayObjects": 201
+    },
+    {
+      "t": 62298,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 4,
+      "effects": 6,
+      "displayObjects": 201
+    },
+    {
+      "t": 62798,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 9,
+      "displayObjects": 208
+    },
+    {
+      "t": 63314,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 16,
+      "displayObjects": 208
+    },
+    {
+      "t": 63814,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 32,
+      "displayObjects": 194
+    },
+    {
+      "t": 64314,
+      "fps": 60,
+      "ships": 8,
+      "projectiles": 0,
+      "effects": 19,
+      "displayObjects": 187
+    },
+    {
+      "t": 64814,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 5,
+      "displayObjects": 194
+    },
+    {
+      "t": 65314,
+      "fps": 60,
+      "ships": 8,
+      "projectiles": 0,
+      "effects": 16,
+      "displayObjects": 187
+    },
+    {
+      "t": 65814,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 2,
+      "effects": 3,
+      "displayObjects": 194
+    },
+    {
+      "t": 66331,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 4,
+      "effects": 11,
+      "displayObjects": 194
+    },
+    {
+      "t": 66847,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 15,
+      "displayObjects": 201
+    },
+    {
+      "t": 67364,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 7,
+      "effects": 5,
+      "displayObjects": 201
+    },
+    {
+      "t": 67864,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 9,
+      "displayObjects": 208
+    },
+    {
+      "t": 68381,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 0,
+      "displayObjects": 208
+    },
+    {
+      "t": 68881,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 4,
+      "displayObjects": 208
+    },
+    {
+      "t": 69381,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 9,
+      "displayObjects": 201
+    },
+    {
+      "t": 69881,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 11,
+      "displayObjects": 208
+    },
+    {
+      "t": 70397,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 27,
+      "displayObjects": 201
+    },
+    {
+      "t": 70897,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 22,
+      "displayObjects": 201
+    },
+    {
+      "t": 71397,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 2,
+      "displayObjects": 201
+    },
+    {
+      "t": 71897,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 9,
+      "displayObjects": 208
+    },
+    {
+      "t": 72414,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 11,
+      "displayObjects": 208
+    },
+    {
+      "t": 72914,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 4,
+      "effects": 11,
+      "displayObjects": 201
+    },
+    {
+      "t": 73414,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 2,
+      "effects": 17,
+      "displayObjects": 194
+    },
+    {
+      "t": 73930,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 10,
+      "displayObjects": 201
+    },
+    {
+      "t": 74430,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 5,
+      "effects": 5,
+      "displayObjects": 201
+    },
+    {
+      "t": 74947,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 14,
+      "displayObjects": 208
+    },
+    {
+      "t": 75464,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 7,
+      "displayObjects": 208
+    },
+    {
+      "t": 75980,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 24,
+      "displayObjects": 201
+    },
+    {
+      "t": 76480,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 20,
+      "displayObjects": 194
+    },
+    {
+      "t": 76997,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 5,
+      "displayObjects": 201
+    },
+    {
+      "t": 77514,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 22,
+      "displayObjects": 201
+    },
+    {
+      "t": 78014,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 11,
+      "displayObjects": 201
+    },
+    {
+      "t": 78514,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 17,
+      "displayObjects": 201
+    },
+    {
+      "t": 79014,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 4,
+      "effects": 18,
+      "displayObjects": 201
+    },
+    {
+      "t": 79514,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 15,
+      "displayObjects": 208
+    },
+    {
+      "t": 80014,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 4,
+      "effects": 10,
+      "displayObjects": 208
+    },
+    {
+      "t": 80530,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 13,
+      "displayObjects": 208
+    },
+    {
+      "t": 81030,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 3,
+      "effects": 4,
+      "displayObjects": 208
+    },
+    {
+      "t": 81530,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 4,
+      "effects": 11,
+      "displayObjects": 208
+    },
+    {
+      "t": 82047,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 14,
+      "displayObjects": 201
+    },
+    {
+      "t": 82547,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 17,
+      "displayObjects": 201
+    },
+    {
+      "t": 83047,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 4,
+      "effects": 15,
+      "displayObjects": 201
+    },
+    {
+      "t": 83547,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 1,
+      "displayObjects": 208
+    },
+    {
+      "t": 84047,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 1,
+      "displayObjects": 208
+    },
+    {
+      "t": 84563,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 31,
+      "displayObjects": 201
+    },
+    {
+      "t": 85063,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 27,
+      "displayObjects": 194
+    },
+    {
+      "t": 85580,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 5,
+      "effects": 25,
+      "displayObjects": 194
+    },
+    {
+      "t": 86080,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 20,
+      "displayObjects": 194
+    },
+    {
+      "t": 86580,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 8,
+      "displayObjects": 201
+    },
+    {
+      "t": 87097,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 10,
+      "displayObjects": 201
+    },
+    {
+      "t": 87613,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 11,
+      "displayObjects": 201
+    },
+    {
+      "t": 88113,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 5,
+      "displayObjects": 201
+    },
+    {
+      "t": 88630,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 5,
+      "effects": 2,
+      "displayObjects": 208
+    },
+    {
+      "t": 89130,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 16,
+      "displayObjects": 201
+    },
+    {
+      "t": 89646,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 1,
+      "displayObjects": 208
+    },
+    {
+      "t": 90146,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 14,
+      "displayObjects": 201
+    },
+    {
+      "t": 90663,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 17,
+      "displayObjects": 201
+    },
+    {
+      "t": 91163,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 6,
+      "effects": 13,
+      "displayObjects": 201
+    },
+    {
+      "t": 91663,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 15,
+      "displayObjects": 208
+    },
+    {
+      "t": 92180,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 1,
+      "displayObjects": 208
+    },
+    {
+      "t": 92680,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 5,
+      "effects": 2,
+      "displayObjects": 208
+    },
+    {
+      "t": 93196,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 19,
+      "displayObjects": 201
+    },
+    {
+      "t": 93713,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 9,
+      "displayObjects": 208
+    },
+    {
+      "t": 94213,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 13,
+      "displayObjects": 208
+    },
+    {
+      "t": 94730,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 16,
+      "displayObjects": 208
+    },
+    {
+      "t": 95230,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 6,
+      "displayObjects": 208
+    },
+    {
+      "t": 95746,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 24,
+      "displayObjects": 208
+    },
+    {
+      "t": 96246,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 17,
+      "displayObjects": 201
+    },
+    {
+      "t": 96763,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 3,
+      "effects": 15,
+      "displayObjects": 208
+    },
+    {
+      "t": 97280,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 24,
+      "displayObjects": 201
+    },
+    {
+      "t": 97796,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 10,
+      "displayObjects": 208
+    },
+    {
+      "t": 98296,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 4,
+      "effects": 5,
+      "displayObjects": 208
+    },
+    {
+      "t": 98796,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 4,
+      "effects": 10,
+      "displayObjects": 208
+    },
+    {
+      "t": 99313,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 8,
+      "displayObjects": 208
+    },
+    {
+      "t": 99829,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 30,
+      "displayObjects": 201
+    },
+    {
+      "t": 100329,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 27,
+      "displayObjects": 194
+    },
+    {
+      "t": 100829,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 16,
+      "displayObjects": 194
+    },
+    {
+      "t": 101346,
+      "fps": 60,
+      "ships": 7,
+      "projectiles": 0,
+      "effects": 31,
+      "displayObjects": 180
+    },
+    {
+      "t": 101863,
+      "fps": 60,
+      "ships": 8,
+      "projectiles": 0,
+      "effects": 10,
+      "displayObjects": 187
+    },
+    {
+      "t": 102363,
+      "fps": 60,
+      "ships": 8,
+      "projectiles": 5,
+      "effects": 9,
+      "displayObjects": 187
+    },
+    {
+      "t": 102863,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 3,
+      "effects": 13,
+      "displayObjects": 194
+    },
+    {
+      "t": 103363,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 5,
+      "displayObjects": 194
+    },
+    {
+      "t": 103879,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 4,
+      "effects": 21,
+      "displayObjects": 194
+    },
+    {
+      "t": 104396,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 14,
+      "displayObjects": 194
+    },
+    {
+      "t": 104896,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 10,
+      "displayObjects": 194
+    },
+    {
+      "t": 105413,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 2,
+      "displayObjects": 194
+    },
+    {
+      "t": 105913,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 4,
+      "effects": 6,
+      "displayObjects": 201
+    },
+    {
+      "t": 106429,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 19,
+      "displayObjects": 194
+    },
+    {
+      "t": 106929,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 13,
+      "displayObjects": 201
+    },
+    {
+      "t": 107446,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 4,
+      "displayObjects": 201
+    },
+    {
+      "t": 107946,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 6,
+      "effects": 14,
+      "displayObjects": 208
+    },
+    {
+      "t": 108446,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 7,
+      "displayObjects": 208
+    },
+    {
+      "t": 108946,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 1,
+      "displayObjects": 208
+    },
+    {
+      "t": 109446,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 3,
+      "effects": 24,
+      "displayObjects": 208
+    },
+    {
+      "t": 109962,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 10,
+      "displayObjects": 208
+    },
+    {
+      "t": 110462,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 2,
+      "displayObjects": 208
+    },
+    {
+      "t": 110962,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 3,
+      "effects": 14,
+      "displayObjects": 208
+    },
+    {
+      "t": 111462,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 3,
+      "effects": 16,
+      "displayObjects": 208
+    },
+    {
+      "t": 111962,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 16,
+      "displayObjects": 201
+    },
+    {
+      "t": 112479,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 29,
+      "displayObjects": 194
+    },
+    {
+      "t": 112979,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 18,
+      "displayObjects": 201
+    },
+    {
+      "t": 113496,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 4,
+      "displayObjects": 201
+    },
+    {
+      "t": 114012,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 20,
+      "displayObjects": 201
+    },
+    {
+      "t": 114512,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 11,
+      "displayObjects": 208
+    },
+    {
+      "t": 115012,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 3,
+      "effects": 38,
+      "displayObjects": 194
+    },
+    {
+      "t": 115529,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 4,
+      "effects": 19,
+      "displayObjects": 194
+    },
+    {
+      "t": 116029,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 14,
+      "displayObjects": 194
+    },
+    {
+      "t": 116529,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 4,
+      "effects": 12,
+      "displayObjects": 201
+    },
+    {
+      "t": 117029,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 18,
+      "displayObjects": 194
+    },
+    {
+      "t": 117545,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 4,
+      "displayObjects": 201
+    },
+    {
+      "t": 118045,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 5,
+      "effects": 14,
+      "displayObjects": 201
+    },
+    {
+      "t": 118562,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 9,
+      "displayObjects": 208
+    },
+    {
+      "t": 119062,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 1,
+      "displayObjects": 208
+    },
+    {
+      "t": 119562,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 7,
+      "effects": 5,
+      "displayObjects": 208
+    },
+    {
+      "t": 120062,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 14,
+      "displayObjects": 208
+    },
+    {
+      "t": 120579,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 3,
+      "effects": 5,
+      "displayObjects": 208
+    },
+    {
+      "t": 121079,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 26,
+      "displayObjects": 201
+    },
+    {
+      "t": 121579,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 15,
+      "displayObjects": 208
+    },
+    {
+      "t": 122079,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 3,
+      "effects": 4,
+      "displayObjects": 208
+    },
+    {
+      "t": 122595,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 2,
+      "displayObjects": 208
+    },
+    {
+      "t": 123095,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 21,
+      "displayObjects": 201
+    },
+    {
+      "t": 123612,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 27,
+      "displayObjects": 201
+    },
+    {
+      "t": 124112,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 2,
+      "displayObjects": 201
+    },
+    {
+      "t": 124612,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 5,
+      "displayObjects": 208
+    },
+    {
+      "t": 125112,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 28,
+      "displayObjects": 203
+    },
+    {
+      "t": 125628,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 1,
+      "displayObjects": 210
+    },
+    {
+      "t": 126128,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 1,
+      "displayObjects": 210
+    },
+    {
+      "t": 126645,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 11,
+      "displayObjects": 210
+    },
+    {
+      "t": 127145,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 9,
+      "displayObjects": 210
+    },
+    {
+      "t": 127645,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 28,
+      "displayObjects": 203
+    },
+    {
+      "t": 128145,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 17,
+      "displayObjects": 203
+    },
+    {
+      "t": 128645,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 3,
+      "effects": 9,
+      "displayObjects": 210
+    },
+    {
+      "t": 129162,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 21,
+      "displayObjects": 203
+    },
+    {
+      "t": 129662,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 16,
+      "displayObjects": 210
+    },
+    {
+      "t": 130162,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 18,
+      "displayObjects": 203
+    },
+    {
+      "t": 130662,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 16,
+      "displayObjects": 210
+    },
+    {
+      "t": 131178,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 7,
+      "displayObjects": 210
+    },
+    {
+      "t": 131678,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 2,
+      "displayObjects": 210
+    },
+    {
+      "t": 132178,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 31,
+      "displayObjects": 203
+    },
+    {
+      "t": 132695,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 9,
+      "displayObjects": 210
+    },
+    {
+      "t": 133195,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 5,
+      "effects": 5,
+      "displayObjects": 210
+    },
+    {
+      "t": 133695,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 23,
+      "displayObjects": 210
+    },
+    {
+      "t": 134211,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 14,
+      "displayObjects": 203
+    },
+    {
+      "t": 134711,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 4,
+      "effects": 9,
+      "displayObjects": 210
+    },
+    {
+      "t": 135228,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 15,
+      "displayObjects": 210
+    },
+    {
+      "t": 135728,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 7,
+      "displayObjects": 210
+    },
+    {
+      "t": 136245,
+      "fps": 60,
+      "ships": 8,
+      "projectiles": 1,
+      "effects": 45,
+      "displayObjects": 196
+    },
+    {
+      "t": 136745,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 15,
+      "displayObjects": 203
+    },
+    {
+      "t": 137261,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 2,
+      "effects": 4,
+      "displayObjects": 203
+    },
+    {
+      "t": 137761,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 25,
+      "displayObjects": 203
+    },
+    {
+      "t": 138278,
+      "fps": 60,
+      "ships": 8,
+      "projectiles": 0,
+      "effects": 13,
+      "displayObjects": 196
+    },
+    {
+      "t": 138778,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 3,
+      "effects": 5,
+      "displayObjects": 203
+    },
+    {
+      "t": 139295,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 3,
+      "effects": 8,
+      "displayObjects": 203
+    },
+    {
+      "t": 139795,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 2,
+      "displayObjects": 210
+    },
+    {
+      "t": 140311,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 3,
+      "displayObjects": 210
+    },
+    {
+      "t": 140811,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 2,
+      "displayObjects": 217
+    },
+    {
+      "t": 141328,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 7,
+      "displayObjects": 217
+    },
+    {
+      "t": 141844,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 3,
+      "displayObjects": 217
+    },
+    {
+      "t": 142344,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 1,
+      "displayObjects": 217
+    },
+    {
+      "t": 142844,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 22,
+      "displayObjects": 210
+    },
+    {
+      "t": 143344,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 13,
+      "displayObjects": 210
+    },
+    {
+      "t": 143844,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 2,
+      "displayObjects": 217
+    },
+    {
+      "t": 144344,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 7,
+      "effects": 18,
+      "displayObjects": 210
+    },
+    {
+      "t": 144844,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 9,
+      "displayObjects": 217
+    },
+    {
+      "t": 145361,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 10,
+      "displayObjects": 210
+    },
+    {
+      "t": 145861,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 6,
+      "effects": 32,
+      "displayObjects": 203
+    },
+    {
+      "t": 146361,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 15,
+      "displayObjects": 203
+    },
+    {
+      "t": 146878,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 5,
+      "displayObjects": 210
+    },
+    {
+      "t": 147394,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 10,
+      "displayObjects": 210
+    },
+    {
+      "t": 147894,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 23,
+      "displayObjects": 210
+    },
+    {
+      "t": 148394,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 5,
+      "displayObjects": 210
+    },
+    {
+      "t": 148911,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 4,
+      "displayObjects": 217
+    },
+    {
+      "t": 149411,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 8,
+      "displayObjects": 217
+    },
+    {
+      "t": 149911,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 7,
+      "displayObjects": 217
+    },
+    {
+      "t": 150427,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 16,
+      "displayObjects": 217
+    },
+    {
+      "t": 150927,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 7,
+      "displayObjects": 217
+    },
+    {
+      "t": 151427,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 4,
+      "effects": 14,
+      "displayObjects": 217
+    },
+    {
+      "t": 151944,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 29,
+      "displayObjects": 210
+    },
+    {
+      "t": 152444,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 9,
+      "displayObjects": 210
+    },
+    {
+      "t": 152961,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 20,
+      "displayObjects": 210
+    },
+    {
+      "t": 153461,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 2,
+      "effects": 27,
+      "displayObjects": 203
+    },
+    {
+      "t": 153961,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 9,
+      "displayObjects": 210
+    },
+    {
+      "t": 154477,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 26,
+      "displayObjects": 203
+    },
+    {
+      "t": 154994,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 19,
+      "displayObjects": 210
+    },
+    {
+      "t": 155494,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 2,
+      "displayObjects": 210
+    },
+    {
+      "t": 155994,
+      "fps": 60,
+      "ships": 8,
+      "projectiles": 0,
+      "effects": 38,
+      "displayObjects": 196
+    },
+    {
+      "t": 156510,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 2,
+      "effects": 16,
+      "displayObjects": 203
+    },
+    {
+      "t": 157010,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 3,
+      "effects": 11,
+      "displayObjects": 203
+    },
+    {
+      "t": 157510,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 8,
+      "displayObjects": 210
+    },
+    {
+      "t": 158010,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 9,
+      "displayObjects": 203
+    },
+    {
+      "t": 158510,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 7,
+      "displayObjects": 210
+    },
+    {
+      "t": 159027,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 10,
+      "displayObjects": 203
+    },
+    {
+      "t": 159544,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 12,
+      "displayObjects": 203
+    },
+    {
+      "t": 160044,
+      "fps": 60,
+      "ships": 8,
+      "projectiles": 3,
+      "effects": 19,
+      "displayObjects": 196
+    },
+    {
+      "t": 160544,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 11,
+      "displayObjects": 203
+    },
+    {
+      "t": 161044,
+      "fps": 60,
+      "ships": 8,
+      "projectiles": 1,
+      "effects": 10,
+      "displayObjects": 196
+    },
+    {
+      "t": 161560,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 8,
+      "displayObjects": 203
+    },
+    {
+      "t": 162060,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 0,
+      "effects": 6,
+      "displayObjects": 203
+    },
+    {
+      "t": 162560,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 4,
+      "displayObjects": 210
+    },
+    {
+      "t": 163060,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 11,
+      "displayObjects": 203
+    },
+    {
+      "t": 163577,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 9,
+      "displayObjects": 210
+    },
+    {
+      "t": 164077,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 3,
+      "effects": 25,
+      "displayObjects": 203
+    },
+    {
+      "t": 164577,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 8,
+      "displayObjects": 210
+    },
+    {
+      "t": 165093,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 11,
+      "displayObjects": 203
+    },
+    {
+      "t": 165593,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 12,
+      "displayObjects": 210
+    },
+    {
+      "t": 166093,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 2,
+      "displayObjects": 210
+    },
+    {
+      "t": 166593,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 1,
+      "displayObjects": 217
+    },
+    {
+      "t": 167110,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 8,
+      "displayObjects": 217
+    },
+    {
+      "t": 167610,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 7,
+      "displayObjects": 217
+    },
+    {
+      "t": 168110,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 1,
+      "displayObjects": 217
+    },
+    {
+      "t": 168627,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 22,
+      "displayObjects": 217
+    },
+    {
+      "t": 169127,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 16,
+      "displayObjects": 217
+    },
+    {
+      "t": 169643,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 2,
+      "effects": 29,
+      "displayObjects": 203
+    },
+    {
+      "t": 170143,
+      "fps": 60,
+      "ships": 9,
+      "projectiles": 1,
+      "effects": 28,
+      "displayObjects": 203
+    },
+    {
+      "t": 170660,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 4,
+      "displayObjects": 210
+    },
+    {
+      "t": 171160,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 3,
+      "effects": 13,
+      "displayObjects": 210
+    },
+    {
+      "t": 171660,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 16,
+      "displayObjects": 210
+    },
+    {
+      "t": 172176,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 1,
+      "effects": 8,
+      "displayObjects": 210
+    },
+    {
+      "t": 172676,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 26,
+      "displayObjects": 210
+    },
+    {
+      "t": 173176,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 13,
+      "displayObjects": 210
+    },
+    {
+      "t": 173676,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 8,
+      "displayObjects": 217
+    },
+    {
+      "t": 174176,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 17,
+      "displayObjects": 217
+    },
+    {
+      "t": 174693,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 1,
+      "effects": 9,
+      "displayObjects": 217
+    },
+    {
+      "t": 175193,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 4,
+      "effects": 11,
+      "displayObjects": 217
+    },
+    {
+      "t": 175693,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 2,
+      "effects": 15,
+      "displayObjects": 210
+    },
+    {
+      "t": 176193,
+      "fps": 60,
+      "ships": 10,
+      "projectiles": 0,
+      "effects": 12,
+      "displayObjects": 210
+    },
+    {
+      "t": 176693,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 5,
+      "effects": 6,
+      "displayObjects": 217
+    },
+    {
+      "t": 177210,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 5,
+      "displayObjects": 217
+    },
+    {
+      "t": 177726,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 8,
+      "displayObjects": 217
+    },
+    {
+      "t": 178226,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 21,
+      "displayObjects": 217
+    },
+    {
+      "t": 178726,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 23,
+      "displayObjects": 217
+    },
+    {
+      "t": 179243,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 2,
+      "effects": 8,
+      "displayObjects": 217
+    },
+    {
+      "t": 179743,
+      "fps": 60,
+      "ships": 11,
+      "projectiles": 0,
+      "effects": 31,
+      "displayObjects": 217
+    }
+  ]
+}

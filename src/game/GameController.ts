@@ -11,6 +11,7 @@ import { TouchInput } from './input/TouchInput.ts';
 import { GameRenderer } from './render/GameRenderer.ts';
 import { RENDER } from './render/renderConfig.ts';
 import type { GameTextures } from './render/textures.ts';
+import type { PerfMonitor } from './testing/perfMonitor.ts';
 
 export interface GameControllerOptions {
   readonly config: GameConfig;
@@ -23,6 +24,8 @@ export interface GameControllerOptions {
    * `advance()`. Used by end-to-end tests to control time deterministically.
    */
   readonly manualClock?: boolean;
+  /** Frame-time profiler (`?perf=1`). */
+  readonly perf?: PerfMonitor | null;
   readonly onMatchEnded?: (result: MatchResult) => void;
   readonly onPauseRequested?: () => void;
 }
@@ -138,6 +141,8 @@ export class GameController {
     this.keyboard.attach();
     this.clock.reset();
     this.sounds.start();
+    this.options.perf?.reset();
+    this.options.perf?.showOverlay();
     this.app.ticker.add(this.tick);
     this.publishHud();
   }
@@ -194,6 +199,7 @@ export class GameController {
   }
 
   private readonly tick = (ticker: Ticker): void => {
+    const started = performance.now();
     const dt = ticker.deltaMS / 1000;
     if (!this.paused && !this.options.manualClock && this.sim.phase === 'running') {
       const steps = this.clock.advance(dt);
@@ -210,7 +216,10 @@ export class GameController {
     this.renderer.render(alpha, cosmeticDt);
     this.sounds.update();
     this.publishHud();
+    this.options.perf?.frame(ticker.deltaMS, performance.now() - started, this.countEntities);
   };
+
+  private readonly countEntities = () => this.renderer.stats;
 
   private publishHud(): void {
     const snapshot = this.sim.snapshot();
@@ -249,6 +258,7 @@ export class GameController {
     if (this.destroyed) return;
     this.destroyed = true;
     this.app.ticker.remove(this.tick);
+    this.options.perf?.hideOverlay();
     this.keyboard.detach();
     for (const off of this.unsubscribe) off();
     this.unsubscribe.length = 0;
