@@ -3,8 +3,9 @@
 A top-down 2D naval shooter built with **React, TypeScript (strict) and PixiJS**.
 Sail between the islands, sink Chasers and Shooters, and climb the Captain's Log.
 
-- **Live demo:** _the Vercel URL is added here after deployment_ (the deployed build runs
-  the mocked API, so ranking and history work on the public URL).
+- **Live demo:** <https://piratebattlevlecabr.vercel.app> (the deployed build runs the
+  mocked API, so ranking and history work on the public URL; try
+  [`?lab=1`](https://piratebattlevlecabr.vercel.app/?lab=1) for the Network Lab).
 - **Challenge statement:** [CHALLENGE.md](CHALLENGE.md)
 - **Architecture and decisions:** [ARCHITECTURE.md](ARCHITECTURE.md)
 - **Testing strategy:** [docs/TESTING.md](docs/TESTING.md) ·
