@@ -21,5 +21,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": ["e2e", "playwright.config.ts", "playwright.visual.config.ts", "playwright.perf.config.ts"]
+  "include": [
+    "e2e",
+    "playwright.config.ts",
+    "playwright.visual.config.ts",
+    "playwright.perf.config.ts"
+  ]
 }

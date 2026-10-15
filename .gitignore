@@ -27,5 +27,7 @@ playwright/.cache/
 # Vercel
 .vercel
 
-# Test reports (curated copies are added explicitly)
-reports/
+# Test reports: only the curated HTML report and the sample trace are committed
+reports/*
+!reports/playwright-html/
+!reports/traces/
