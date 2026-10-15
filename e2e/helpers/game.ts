@@ -116,16 +116,28 @@ export async function advanceAndState(page: Page, ms: number): Promise<GameState
   return snapshot;
 }
 
-/** Reads the state, advances, and reads it again — atomically (see above). */
-export async function stateAroundAdvance(page: Page, ms: number): Promise<[GameState, GameState]> {
-  const snapshots = await page.evaluate((duration) => {
-    const before = window.__PB__?.state() ?? null;
-    window.__PB__?.advance(duration);
-    return [before, window.__PB__?.state() ?? null] as const;
-  }, ms);
-  const [before, after] = snapshots;
-  if (!before || !after) throw new Error('No match is running');
-  return [before, after];
+/**
+ * Advances `firstMs`, reads the state, advances `secondMs` and reads it again — all
+ * in one page task, so the result screen (1.2 s of real time after the end) cannot
+ * replace the game between the two reads, however slow the machine is.
+ */
+export async function advanceTwice(
+  page: Page,
+  firstMs: number,
+  secondMs: number,
+): Promise<[GameState, GameState]> {
+  const snapshots = await page.evaluate(
+    ([first, second]) => {
+      window.__PB__?.advance(first);
+      const afterFirst = window.__PB__?.state() ?? null;
+      window.__PB__?.advance(second);
+      return [afterFirst, window.__PB__?.state() ?? null] as const;
+    },
+    [firstMs, secondMs] as const,
+  );
+  const [afterFirst, afterSecond] = snapshots;
+  if (!afterFirst || !afterSecond) throw new Error('No match is running');
+  return [afterFirst, afterSecond];
 }
 
 /** Ends the running match by letting the preset's Chaser sink the player (`low-health`). */

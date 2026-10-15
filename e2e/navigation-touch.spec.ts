@@ -60,6 +60,8 @@ test.describe('Abandoning and navigating', () => {
     page,
     gotoApp,
   }) => {
+    // Five full match loads: allow more than the default budget on slow CI runners.
+    test.setTimeout(240_000);
     await gotoApp({ preset: 'sandbox' });
     for (let i = 0; i < 5; i++) {
       await startMatch(page);

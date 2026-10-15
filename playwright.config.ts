@@ -19,9 +19,10 @@ export default defineConfig({
   retries: CI ? 1 : 0,
   // WebGL runs on the CPU in headless Chromium: keep parallelism modest.
   workers: CI ? 2 : 3,
-  timeout: 60_000,
+  // CI runners render WebGL on 2 shared CPUs: give every test more headroom there.
+  timeout: CI ? 120_000 : 60_000,
   expect: {
-    timeout: 10_000,
+    timeout: CI ? 20_000 : 10_000,
     toHaveScreenshot: { maxDiffPixelRatio: 0.01, animations: 'disabled', caret: 'hide' },
   },
   snapshotPathTemplate: '{testDir}/__screenshots__/{testFilePath}/{arg}-{projectName}{ext}',

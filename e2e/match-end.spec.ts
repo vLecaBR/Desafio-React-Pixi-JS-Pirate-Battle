@@ -1,11 +1,11 @@
 import { expect, test } from './fixtures.ts';
 import {
   advanceAndState,
+  advanceTwice,
   defeatThenAdvance,
   finishByDefeat,
   setOptions,
   startMatch,
-  stateAroundAdvance,
 } from './helpers/game.ts';
 
 test.describe('End of match and restart', () => {
@@ -14,10 +14,7 @@ test.describe('End of match and restart', () => {
     await setOptions(page, 60, 3);
     await startMatch(page);
     await page.keyboard.down('KeyW');
-    const [ended, later] = await (async () => {
-      await advanceAndState(page, 61_000);
-      return stateAroundAdvance(page, 5000);
-    })();
+    const [ended, later] = await advanceTwice(page, 61_000, 5000);
     await page.keyboard.up('KeyW');
 
     expect(ended).toMatchObject({ phase: 'ended', endReason: 'time_up', elapsedMs: 60_000 });
